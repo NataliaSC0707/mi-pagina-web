@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libro Abierto</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #FF6F61, #FF0033);
+      font-family: 'Playfair Display', serif;
+      overflow: hidden;
+    }
+
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    .book {
+      width: 700px;
+      height: 500px;
+      background-color: #8B4513;
+      border: 4px solid #5D3A00;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      perspective: 1000px;
+      border-radius: 10px;
+      transition: transform 0.5s;
+    }
+
+    .book:hover {
+      transform: rotateX(5deg) rotateY(-5deg);
+    }
+
+    .pages {
+      width: 660px;
+      height: 440px;
+      background-color: #FFF8DC;
+      box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      border-radius: 5px;
+      transform-style: preserve-3d;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .page {
+      width: 50%;
+      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 16px;
+      color: #333;
+      text-align: left;
+      line-height: 1.8;
+      overflow-y: auto;
+      border-radius: 5px;
+    }
+
+    .page-left {
+      border-right: 2px solid #dcdcdc;
+      background-color: #FFF8DC;
+    }
+
+    .page-right {
+      background-color: #FFF8DC;
+    }
+
+    /* Texto decorativo */
+    p {
+      margin: 0 0 1em;
+    }
+
+    p:first-of-type {
+      font-size: 20px;
+      font-weight: bold;
+      color: #B22222;
+      text-align: center;
+    }
+
+    p:last-of-type {
+      font-style: italic;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="snow"></div>
+  <div class="book">
+    <div class="pages">
+      <div class="page page-left">
+        <p>¡Hola, querido amigo! 🎅🎄</p>
+        <p>Soy yo, Santa Claus, escribiéndote desde el Polo Norte. Quiero comenzar diciéndote lo orgulloso que estoy de ti. Este año has demostrado ser un joven excepcional. He visto tu esfuerzo por ser amable, generoso y hacer lo correcto, incluso cuando las cosas no eran fáciles. ¡Eso es algo digno de admirar!</p>
+        <p>Sé que has puesto mucha ilusión en estas fechas, y por eso me duele tener que decirte esto: este año no podré llevarte un regalo. Créeme cuando te digo que no es porque no te lo merezcas, porque si de mí dependiera, tendrías todo lo que tu corazón deseara. A veces, las circunstancias son complicadas, incluso para alguien como yo, y tengo que tomar decisiones difíciles.</p>
+      </div>
+      <div class="page page-right">
+        <p>Pero quiero que recuerdes algo importante:</p>
+        <p>Los regalos materiales no definen cuánto vales ni cuán especial eres. Tú, con tu bondad, esfuerzo y corazón generoso, eres un verdadero regalo para las personas que te rodean.</p>
+        <p>Gracias por ser quien eres. Nunca cambies esa luz tan especial que llevas dentro.</p>
+        <p>Sigue adelante, porque estoy seguro de que el próximo año traerá sorpresas maravillosas para ti.</p>
+        <p>Con todo mi cariño, Santa Claus 🎅✨</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const snowContainer = document.querySelector('.snow');
+
+    for (let i = 0; i < 100; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+
+        snowContainer.appendChild(snowflake);
+    }
+  </script>
+</body>
+</html>
+

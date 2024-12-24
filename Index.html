@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Navideña</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff9999, #ff3333);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px #cc0000;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .gift {
+            width: 200px;
+            height: 200px;
+            background: red;
+            border: 5px solid #fff;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s, box-shadow 0.5s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .gift:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gift::before, .gift::after {
+            content: '';
+            position: absolute;
+            background: #fff;
+        }
+
+        .gift::before {
+            width: 30px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .gift::after {
+            width: 100%;
+            height: 30px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ribbon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 40px;
+            background: linear-gradient(to bottom, #006400, #00cc00);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .ribbon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 10px;
+            background: linear-gradient(to bottom, #006400, #00cc00);
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        }
+
+        .snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snow"></div>
+    <div class="container">
+        <h1>¡Feliz Navidad Turroncito!</h1>
+        <p>Haz clic en el regalo para descubrir una sorpresa.</p>
+
+        <a href="sorpresa.html">
+            <div class="gift">
+                <div class="ribbon"></div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        const snowContainer = document.querySelector('.snow');
+
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+
+            snowContainer.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>

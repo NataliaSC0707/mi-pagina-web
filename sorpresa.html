@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Navideña con Santa</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff9999, #ff4d4d);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #FF2424;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+            margin-top: 30px;
+            animation: fadeInDown 2s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            line-height: 1.8;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .santa-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-top: 30px;
+            animation: bounce 3s infinite;
+        }
+
+        .santa-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .book {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e63946;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .book:hover {
+            transform: scale(1.1);
+            background-color: #d62839;
+        }
+
+        .decorations {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .decorations img {
+            width: 60px;
+            height: 60px;
+            animation: spin 5s linear infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="snow"></div>
+    <h1>¡Feliz Navidad!</h1>
+     <p>¡Hola! <br><br>
+
+No sé si este mensaje sea lo que esperas o si debería escribirte, pero la Navidad me trae todos estos recuerdos y emociones que no puedo ignorar. Ha pasado un mes desde que terminamos, y aunque sé que fue lo mejor en ese momento, la verdad es que te he extrañado muchísimo. No hay día que pase sin que piense en lo que compartimos, en esas risas tontas, nuestras conversaciones interminables y hasta en los silencios cómodos que teníamos. Todo eso aún lo llevo conmigo.
+
+Quiero que sepas que, aunque ya no estemos juntos, de corazón te deseo lo mejor. Espero que esta Navidad esté llena de momentos felices para ti, que te sientas amado, acompañado, y que encuentres mucha paz. Deseo que tu vida esté llena de éxitos, de sueños cumplidos, y de todo lo que haga brillar esa sonrisa que tanto me gustaba. Quiero que vivas al máximo, que cada paso que des te acerque a ser la mejor versión de ti, porque sé que tienes un mundo increíble por delante.
+
+Ojalá disfrutes estas fiestas rodeado de la gente que te quiere. Come todo lo que te encanta, ríe como si no hubiera un mañana y siéntete feliz, porque lo mereces. Aunque ahora esté viendo todo esto desde la distancia, sigo queriendo que tengas una vida increíble. De verdad, no puedo desearte otra cosa.
+
+Siempre voy a guardar un rincón especial para ti en mi corazón. No sé si las cosas volverán a cruzarse para nosotros, pero lo que tuvimos lo voy a llevar conmigo siempre. Gracias por los momentos que compartimos, por lo que me enseñaste, por haber sido parte de mi vida.
+
+Cuídate mucho, ¿sí? Y si alguna vez piensas en mí, espero que sea con una sonrisa, porque a pesar de todo, solo quiero que seas feliz.
+
+¡Felices fiestas! 🎄✨</p>
+    <div class="santa-container">
+        <img src="santa.png" alt="Santa Claus">
+    </div>
+    <div class="decorations">
+        <img src="copo.jpg" alt="Copo de nieve">
+        <img src="copo.jpg" alt="Copo de nieve">
+        <img src="copo.jpg" alt="Copo de nieve">
+    </div>
+    <a class="book" href="libro.html">Haz clic aquí para leer un libro navideño</a>
+    <script>
+        const snowContainer = document.querySelector('.snow');
+
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+
+            snowContainer.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>
